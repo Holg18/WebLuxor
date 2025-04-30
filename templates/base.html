@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxor Agencia de Modelos</title>
-    <link rel="stylesheet" href="static/css/style.css"> <!-- Cambié las rutas para ser relativas -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Flask url_for -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"> <!-- Reemplacé url_for('index') con el nombre de la página -->
+            <a href="{{ url_for('index') }}"> <!-- Flask url_for -->
                 <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
             </a>
         </div>
         <nav>
             <ul class="main-menu">
-                <li><a href="models.html">MODELOS</a></li> 
-                <li><a href="about.html">SOBRE NOSOTROS</a></li> 
-                <li><a href="contact.html">CONTACTO</a></li> 
+                <li><a href="{{ url_for('models') }}">MODELOS</a></li> 
+                <li><a href="{{ url_for('about') }}">SOBRE NOSOTROS</a></li> 
+                <li><a href="{{ url_for('contact') }}">CONTACTO</a></li> 
             </ul>
         </nav>
         <div class="mobile-menu-toggle">☰</div>
@@ -37,10 +37,10 @@
                 <div class="footer-column">
                     <h3>Navegación</h3>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="models.html">Modelos</a></li>
-                        <li><a href="about.html">Sobre Nosotros</a></li>
-                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                        <li><a href="{{ url_for('models') }}">Modelos</a></li>
+                        <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -64,6 +64,6 @@
         </div>
     </footer>
 
-    <script src="static/js/main.js"></script> <!-- Cambié la ruta para que sea relativa -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script> <!-- Flask url_for -->
 </body>
 </html>
