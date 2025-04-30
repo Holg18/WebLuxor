@@ -17,31 +17,26 @@
     </div>
     <nav>
       <ul class="main-menu">
-        <li><a href="{{ url_for('models') }}">MODELOS</a></li>
-        <li><a href="{{ url_for('about') }}">SOBRE NOSOTROS</a></li>
-        <li><a href="{{ url_for('contact') }}">CONTACTO</a></li>
+        <li><a href="{{ url_for('models') }}">Modelos</a></li>
+        <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+        <li><a href="{{ url_for('contact') }}">Contacto</a></li>
       </ul>
     </nav>
-    <div class="mobile-menu-toggle">☰</div>
   </header>
 
   <main>
-    <section class="hero-slider">
-      <div class="hero-slider-wrapper">
-        <div class="hero-slide active">
-          <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://cdn.pixabay.com/video/2022/11/28/140828-776043783_large.mp4" type="video/webm" />
-          </video>
-        </div>
+    <section class="about-header">
+      <div class="container">
+        <h1>Sobre Nosotros</h1>
+        <p>Conoce más sobre nuestra agencia y lo que nos hace diferentes.</p>
       </div>
     </section>
 
     <section class="about-story">
       <div class="container">
         <div class="story-content">
-          <h2>NUESTRA HISTORIA</h2>
+          <h2>Nuestra Historia</h2>
           <p>Fundada en 2000, nuestra agencia de modelos nació con la visión de revolucionar la industria de la moda...</p>
-          <p>A lo largo de los años, hemos descubierto y desarrollado algunas de las caras más reconocibles de la industria...</p>
         </div>
         <div class="story-image">
           <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg" alt="Nuestra Historia" />
@@ -51,22 +46,20 @@
 
     <section class="our-philosophy">
       <div class="container">
+        <div class="philosophy-content">
+          <h2>Nuestra Filosofía</h2>
+          <p>Creemos que cada modelo tiene algo único que ofrecer...</p>
+        </div>
         <div class="philosophy-image">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnnvYoenhVH_YGUXavJlr03Joji0O5IA-CVg&s" alt="Nuestra Filosofía" />
-        </div>
-        <div class="philosophy-content">
-          <h2>NUESTRA FILOSOFÍA</h2>
-          <p>Creemos que cada modelo tiene algo único que ofrecer...</p>
-          <p>Nos esforzamos por crear un ambiente inclusivo y diverso...</p>
         </div>
       </div>
     </section>
 
     <section class="team">
       <div class="container">
-        <h2>NUESTRO EQUIPO</h2>
+        <h2>Conoce a Nuestro Equipo</h2>
         <div class="team-grid">
-          <!-- Miembros del equipo -->
           <div class="team-member">
             <div class="member-image">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Martín Sanchez" />
@@ -76,34 +69,7 @@
               <p>Director General</p>
             </div>
           </div>
-          <!-- Repite miembros del equipo según sea necesario -->
-          <div class="team-member">
-            <div class="member-image">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Elena Torres" />
-            </div>
-            <div class="member-info">
-              <h3>Elena Torres</h3>
-              <p>Directora de Scouting</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-image">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Gabriel Moreno" />
-            </div>
-            <div class="member-info">
-              <h3>Gabriel Moreno</h3>
-              <p>Director Creativo</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-image">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Carmen Vega" />
-            </div>
-            <div class="member-info">
-              <h3>Carmen Vega</h3>
-              <p>Representante Principal</p>
-            </div>
-          </div>
+          <!-- Más miembros del equipo -->
         </div>
       </div>
     </section>
@@ -111,8 +77,8 @@
     <section class="join-us">
       <div class="container">
         <div class="join-content">
-          <h2>ÚNETE A NOSOTROS</h2>
-          <p>Siempre estamos buscando nuevos talentos para unirse a nuestra familia...</p>
+          <h2>Únete a Nosotros</h2>
+          <p>Estamos buscando nuevos talentos para unirse a nuestra familia...</p>
           <a href="{{ url_for('contact') }}" class="btn">Contáctanos</a>
         </div>
       </div>
@@ -121,39 +87,39 @@
 
   <footer>
     <div class="footer-content">
-      <div class="footer-logo">
-        <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo" />
-      </div>
-      <div class="footer-links">
-        <div class="footer-column">
-          <h3>Navegación</h3>
-          <ul>
-            <li><a href="{{ url_for('index') }}">Inicio</a></li>
-            <li><a href="{{ url_for('models') }}">Modelos</a></li>
-            <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
-            <li><a href="{{ url_for('contact') }}">Contacto</a></li>
-          </ul>
+        <div class="footer-logo">
+            <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
         </div>
-        <div class="footer-column">
-          <h3>Síguenos</h3>
-          <ul class="social-links">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-          </ul>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('models') }}">Modelos</a></li>
+                    <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <ul class="social-links">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <p>info@tuagencia.com</p>
+                <p>+1 234 567 890</p>
+                <p>Calle Principal 123, Ciudad</p>
+            </div>
         </div>
-        <div class="footer-column">
-          <h3>Contacto</h3>
-          <p>info@tuagencia.com</p>
-          <p>+1 234 567 890</p>
-          <p>Calle Principal 123, Ciudad</p>
-        </div>
-      </div>
     </div>
     <div class="copyright">
-      <p>&copy; 2025 Tu Agencia de Modelos. Todos los derechos reservados.</p>
+        <p>&copy; LUXOR AGENCIA MODELS. Agencia de Modelos Webcam 2022</p>
     </div>
-  </footer>
+</footer>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
