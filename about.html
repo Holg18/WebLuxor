@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Luxor Agencia de Modelos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="{{ url_for('models') }}">MODELOS</a></li>
+                    <li><a href="{{ url_for('about') }}">SOBRE NOSOTROS</a></li>
+                    <li><a href="{{ url_for('contact') }}">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">☰</div>
+        </header>
+
+        <main>
+            <section class="hero-slider">
+                <div class="hero-slider-wrapper">
+                  <div class="hero-slide active">
+                    <video autoplay muted loop playsinline class="hero-video">
+                      <source src="https://cdn.pixabay.com/video/2022/11/28/140828-776043783_large.mp4" type="video/webm">
+                    </video>
+                  </div>
+              </section>
+
+            <section class="about-story">
+                <div class="container">
+                    <div class="story-content">
+                        <h2>NUESTRA HISTORIA</h2>
+                        <p>Fundada en 2000, nuestra agencia de modelos nació con la visión de revolucionar la industria de la moda, ofreciendo representación de primera clase a modelos emergentes y establecidos. Lo que comenzó como una pequeña oficina con un equipo de tres personas, ha crecido hasta convertirse en una de las agencias más respetadas en el mundo de la moda.</p>
+                        <p>A lo largo de los años, hemos descubierto y desarrollado algunas de las caras más reconocibles de la industria. Nuestro compromiso con la excelencia y la integridad nos ha permitido construir relaciones duraderas con los principales diseñadores, marcas y fotógrafos del mundo.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg" alt="Nuestra Historia">
+                    </div>
+                </div>
+            </section>
+
+            <section class="our-philosophy">
+                <div class="container">
+                    <div class="philosophy-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnnvYoenhVH_YGUXavJlr03Joji0O5IA-CVg&s" alt="Nuestra Filosofía">
+                    </div>
+                    <div class="philosophy-content">
+                        <h2>NUESTRA FILOSOFÍA</h2>
+                        <p>Creemos que cada modelo tiene algo único que ofrecer. Nuestra filosofía se basa en el desarrollo personalizado del talento, reconociendo las fortalezas individuales y ayudando a nuestros modelos a alcanzar su máximo potencial.</p>
+                        <p>Nos esforzamos por crear un ambiente inclusivo y diverso, donde todos se sientan valorados y representados. Estamos comprometidos con prácticas éticas y sostenibles en la industria de la moda, promoviendo el bienestar y la seguridad de nuestros modelos en todo momento.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team">
+                <div class="container">
+                    <h2>NUESTRO EQUIPO</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Equipo 1">
+                            </div>
+                            <div class="member-info">
+                                <h3>Martín Sanchez</h3>
+                                <p>Director General</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Equipo 2">
+                            </div>
+                            <div class="member-info">
+                                <h3>Elena Torres</h3>
+                                <p>Directora de Scouting</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Equipo 3">
+                            </div>
+                            <div class="member-info">
+                                <h3>Gabriel Moreno</h3>
+                                <p>Director Creativo</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F5AzeQxGJr3AOvHwr_LCFXW8UZkQdiaQJQ&s" alt="Equipo 4">
+                            </div>
+                            <div class="member-info">
+                                <h3>Carmen Vega</h3>
+                                <p>Representante Principal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="join-us">
+                <div class="container">
+                    <div class="join-content">
+                        <h2>ÚNETE A NOSOTROS</h2>
+                        <p>Siempre estamos buscando nuevos talentos para unirse a nuestra familia. Si estás interesado en una carrera en el modelaje o si tienes el ojo para descubrir nuevas caras, nos encantaría saber de ti.</p>
+                        <a href="{{ url_for('contact') }}" class="btn">Contáctanos</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navegación</h3>
+                        <ul>
+                            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                            <li><a href="{{ url_for('models') }}">Modelos</a></li>
+                            <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Síguenos</h3>
+                        <ul class="social-links">
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <p>info@tuagencia.com</p>
+                        <p>+1 234 567 890</p>
+                        <p>Calle Principal 123, Ciudad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Tu Agencia de Modelos. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>
