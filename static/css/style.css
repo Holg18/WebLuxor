@@ -307,6 +307,11 @@ header {
 .about-image {
     flex: 1;
 }
+.about-video{
+    width: 100%;
+    height: 100%;
+    object-fit: justify;
+}
 
 .about-image img {
     width: 100%;

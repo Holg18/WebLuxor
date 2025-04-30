@@ -27,17 +27,17 @@
         <div class="hero-slider-wrapper">
           <div class="hero-slide active">
             <video autoplay muted loop playsinline class="hero-video">
-              <source src="https://cdn.pixabay.com/video/2022/11/28/140828-776043783_large.mp4" type="video/webm">
+              <source src="{{ url_for('static', filename='videos/presentacion.mp4') }}" type="video/webm">
             </video>
           </div>
           <div class="hero-slide">
             <video autoplay muted loop playsinline class="hero-video">
-              <source src="https://media.istockphoto.com/id/2060879907/video/team-of-graphic-design-students-retouching-a-photo-on-the-computer-while-talking-and-smiling.mp4?s=mp4-640x640-is&k=20&c=lVLmsUObYo7cMknE3EjUe2gz0uc5Wz900ada5046KgU=" type="video/webm">
+              <source src="{{ url_for('static', filename='videos/presentacion2.mp4') }}" type="video/webm">
             </video>
           </div>
           <div class="hero-slide">
             <video autoplay muted loop playsinline class="hero-video">
-              <source src="https://media.istockphoto.com/id/1430100527/video/eye-monitor-reflection-and-woman-with-online-website-content-for-research-mission-or-goal-at.mp4?s=mp4-640x640-is&k=20&c=lWko-BadGahlK1zJ5sLEYfcFRTCT_xtZ6fgK3FUvZR4=" type="video/webm">
+              <source src="{{ url_for('static', filename='videos/presentacion3.mp4') }}" type="video/webm">
             </video>
           </div>
         </div>
@@ -54,7 +54,9 @@
             <a href="{{ url_for('about') }}" class="btn">Conoce Más</a>
         </div>
         <div class="about-image">
-            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9zci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjg1Ny0wMDEucG5n.png" alt="About Us">
+            <video autoplay muted loop playsinline class="about-video">
+                <source src="{{ url_for('static', filename='videos/presentacion3.mp4') }}" type="video/webm">
+              </video>
         </div>
     </section>
 
