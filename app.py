@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,46 +8,13 @@ def index():
 
 @app.route('/models')
 def models():
-    # En una aplicación real, aquí cargarías datos de una base de datos
-    models_data = [
-        {
-            'name': 'ALANA PEARCE',
-            'category': 'Women',
-            'image': 'https://luxoragenciamodels.com/wp-content/uploads/2022/12/modelo_3.png'
-        },
-        {
-            'name': 'ANNEDUBOIS',
-            'category': 'Women',
-            'image': 'https://luxoragenciamodels.com/wp-content/uploads/2022/12/modelo_1.png'
-        },
-        {
-            'name': 'NICOLE WESLEY',
-            'category': 'Women',
-            'image': 'https://luxoragenciamodels.com/wp-content/uploads/2022/12/modelo.png'
-        },
-        {
-            'name': 'Jacob_rodriguez',
-            'category': 'Men',
-            'image': 'https://i.ibb.co/XkxyxcYJ/perfil-about-me.png'
-        },
-        {
-            'name': 'Ruso_Miers',
-            'category': 'Men',
-            'image': 'https://images.squarespace-cdn.com/content/v1/5b46e884aa49a10f1fffa15a/1537381021418-EPGME124R3S0VSHW10MY/port.jpg'
-        },
-        {
-            'name': 'Zack_Miller',
-            'category': 'New Faces',
-            'image': 'https://static.vecteezy.com/system/resources/thumbnails/003/492/236/small/portrait-of-brutal-handsome-bearded-young-man-model-in-white-shirt-standing-and-looking-at-the-camera-with-pleasure-proud-face-indoor-studio-shot-isolated-on-beige-background-free-photo.JPG'
-        },
-        {
-            'name': 'Thiago_Dasilva',
-            'category': 'New Faces',
-            'image': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/David_Gandy_SS17.jpg/1200px-David_Gandy_SS17.jpg'
-        },
-    ]
-    
-    return render_template('models.html', models=models_data)
+    # Obtener el parámetro de categoría de la URL (por defecto 'todos')
+    categoria = request.args.get('categoria', 'todos')
+    return render_template('models.html', categoria=categoria)
+
+@app.route('/novedades')
+def novedades():
+    return render_template('novedades.html')
 
 @app.route('/about')
 def about():
@@ -58,4 +25,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)

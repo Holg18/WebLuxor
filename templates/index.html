@@ -16,11 +16,13 @@
         </div>
         <nav>
             <ul class="main-menu">
-                <li><a href="{{ url_for('models') }}">MODELOS</a></li>
-                <li><a href="{{ url_for('about') }}">SOBRE NOSOTROS</a></li>
-                <li><a href="{{ url_for('contact') }}">CONTACTO</a></li>
+                <li><a href="{{ url_for('models') }}">GALERIA</a></li> 
+                <li><a href="{{ url_for('novedades') }}">NOVEDADES</a></li> 
+                <li><a href="{{ url_for('about') }}">NOSOTROS</a></li> 
+                <li><a href="{{ url_for('contact') }}">CONTACTO</a></li> 
             </ul>
         </nav>
+        <div class="mobile-menu-toggle">☰</div>
     </header>
     
     <section class="hero-slider">
@@ -91,7 +93,8 @@
                     <h3>Navegación</h3>
                     <ul>
                         <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                        <li><a href="{{ url_for('models') }}">Modelos</a></li>
+                        <li><a href="{{ url_for('models') }}">Galeria</a></li>
+                        <li><a href="{{ url_for('novedades') }}">Novedades</a></li>
                         <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
                         <li><a href="{{ url_for('contact') }}">Contacto</a></li>
                     </ul>
@@ -150,6 +153,23 @@
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
         });
+        const mainMenu = document.querySelector('.main-menu');
+
+        if (menuToggle && mainMenu) {
+            menuToggle.addEventListener('click', function () {
+                const isActive = mainMenu.classList.toggle('active');
+                menuToggle.textContent = isActive ? '✖' : '☰';
+            });
+    
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    mainMenu.classList.remove('active');
+                    mainMenu.style.display = 'flex';
+                } else {
+                    mainMenu.style.display = 'none';
+                }
+            });
+        }
     </script>      
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

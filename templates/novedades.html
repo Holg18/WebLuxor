@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/novedades.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="{{ url_for('models') }}">GALERIA</a></li> 
+                    <li><a href="{{ url_for('novedades') }}">NOVEDADES</a></li> 
+                    <li><a href="{{ url_for('about') }}">NOSOTROS</a></li> 
+                    <li><a href="{{ url_for('contact') }}">CONTACTO</a></li> 
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">☰</div>
+        </header>
+            
+            <section class="hero-slider">
+                <div class="hero-slider-wrapper">
+                  <div class="hero-slide active">
+                    <video autoplay muted loop playsinline class="hero-video">
+                      <source src="{{ url_for('static', filename='videos/presentacion.mp4') }}" type="video/webm">
+                    </video>
+                  </div>
+                  <div class="hero-slide">
+                    <video autoplay muted loop playsinline class="hero-video">
+                      <source src="{{ url_for('static', filename='videos/presentacion2.mp4') }}" type="video/webm">
+                    </video>
+                  </div>
+                  <div class="hero-slide">
+                    <video autoplay muted loop playsinline class="hero-video">
+                      <source src="{{ url_for('static', filename='videos/presentacion3.mp4') }}" type="video/webm">
+                    </video>
+                  </div>
+                </div>
+                <div class="slider-controls">
+                  <button class="prev-slide">❮</button>
+                  <button class="next-slide">❯</button>
+                </div>
+            </section>
+            
+            <h2>Nuestras características</h2>
+            <div class="main-content">
+                <div class="card">
+                    <img src="/api/placeholder/400/200" alt="Característica 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Diseño Responsivo</h3>
+                        <p>Nuestra aplicación se adapta perfectamente a cualquier dispositivo, ya sea un ordenador de escritorio, una tablet o un smartphone.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/api/placeholder/400/200" alt="Característica 2" class="card-image">
+                    <div class="card-content">
+                        <h3>Alta Seguridad</h3>
+                        <p>Implementamos las mejores prácticas de seguridad para proteger tus datos y garantizar una experiencia segura.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/api/placeholder/400/200" alt="Característica 3" class="card-image">
+                    <div class="card-content">
+                        <h3>Interfaz Intuitiva</h3>
+                        <p>Hemos diseñado una interfaz de usuario amigable que hace que la navegación sea sencilla e intuitiva para todos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>¿Listo para comenzar?</h2>
+                <p>Únete a los miles de usuarios que disfrutan de nuestra aplicación.</p>
+                <a href="{{ url_for('contact') }}" class="btn">Contáctanos</a>
+            </div>
+            
+            <h2>Galería de imágenes</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 1" width="100%">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 2" width="100%">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 3" width="100%">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 4" width="100%">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 5" width="100%">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/200" alt="Imagen 6" width="100%">
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://luxoragenciamodels.com/wp-content/uploads/2022/05/logo_luxoragenciamodels_w.png" alt="Logo">
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h3>Navegación</h3>
+                            <ul>
+                                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                                <li><a href="{{ url_for('models') }}">Galeria</a></li>
+                                <li><a href="{{ url_for('novedades') }}">Novedades</a></li>
+                                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                                <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Síguenos</h3>
+                            <ul class="social-links">
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Contacto</h3>
+                            <p>info@tuagencia.com</p>
+                            <p>+1 234 567 890</p>
+                            <p>Calle Principal 123, Ciudad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Tu Agencia de Modelos. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const slides = document.querySelectorAll('.hero-slide'); 
+                const prevBtn = document.querySelector('.prev-slide');
+                const nextBtn = document.querySelector('.next-slide');
+                let currentSlide = 0;
+                let slideInterval = setInterval(nextSlide, 5000); 
+    
+                function showSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[index].classList.add('active');
+                }
+    
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                    resetSlideInterval();
+                }
+    
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                    resetSlideInterval();
+                }
+    
+                function resetSlideInterval() {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                }
+    
+                prevBtn.addEventListener('click', prevSlide);
+                nextBtn.addEventListener('click', nextSlide);
+            });
+        </script> 
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

@@ -7,38 +7,72 @@ body {
 }
 
 header {
-    background-color: #222;
-    color: #fff;
-    padding: 20px 0;
-}
-
-header .logo img {
-    max-width: 150px;
-    margin-left: 20px;
-}
-
-nav .main-menu {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #000;
+    transition: all 0.3s ease;
 }
 
-nav .main-menu li a {
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Estilos para el menú principal */
+.main-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin: 0 15px;
+}
+
+.main-menu a {
+    color: white;
     text-decoration: none;
-    color: #fff;
-    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-nav .main-menu li a:hover {
-    text-decoration: underline;
+.main-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
 }
+
+.main-menu a:hover::after {
+    width: 100%;
+}
+
+/* Estilos para el menú móvil */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+
 
 /* About Header */
 .about-header {
     background-color: #222;
     color: #fff;
-    padding: 50px 0;
+    padding: 30px 0;
     text-align: center;
     margin-top: 9.6%;
 }
@@ -213,49 +247,118 @@ nav .main-menu li a:hover {
 
 /* Footer */
 footer {
-    background-color: #222;
-    color: #fff;
-    padding: 40px 0;
-    text-align: center;
+    background-color: #000;
+    color: white;
+    padding: 40px 0 20px;
 }
 
-footer .footer-content {
+.footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo img {
+    height: 60px;
+    margin-bottom: 30px;
+}
+
+.footer-links {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
-footer .footer-column {
+.footer-column {
+    flex: 1;
+    min-width: 200px;
     margin-bottom: 20px;
+    padding: 0 15px;
 }
 
-footer .footer-logo img {
-    max-width: 150px;
+.footer-column h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
-footer .footer-column h3 {
-    font-size: 1.5rem;
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
     margin-bottom: 10px;
 }
 
-footer .footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer .footer-column ul li a {
+.footer-column a {
+    color: #aaa;
     text-decoration: none;
-    color: #ddd;
-    font-size: 1rem;
-    margin-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-footer .footer-column ul li a:hover {
-    color: #f39c12;
+.footer-column a:hover {
+    color: white;
 }
 
-footer .copyright {
-    font-size: 1rem;
-    margin-top: 30px;
-    color: #ddd;
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        padding: 20px 0;
+        text-align: center;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .main-menu {
+        flex-direction: column;
+    }
+
+    .main-menu li {
+        margin: 10px 0;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+        width: 100%;
+    }
 }

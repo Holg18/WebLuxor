@@ -19,9 +19,10 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="{{ url_for('models') }}">MODELOS</a></li>
-                    <li><a href="{{ url_for('about') }}">SOBRE NOSOTROS</a></li>
-                    <li><a href="{{ url_for('contact') }}">CONTACTO</a></li>
+                    <li><a href="{{ url_for('models') }}">GALERIA</a></li> 
+                    <li><a href="{{ url_for('novedades') }}">NOVEDADES</a></li> 
+                    <li><a href="{{ url_for('about') }}">NOSOTROS</a></li> 
+                    <li><a href="{{ url_for('contact') }}">CONTACTO</a></li> 
                 </ul>
             </nav>
             <div class="mobile-menu-toggle">☰</div>
@@ -130,7 +131,8 @@
                         <h3>Navegación</h3>
                         <ul>
                             <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                            <li><a href="{{ url_for('models') }}">Modelos</a></li>
+                            <li><a href="{{ url_for('models') }}">Galeria</a></li>
+                            <li><a href="{{ url_for('novedades') }}">Novedades</a></li>
                             <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
                             <li><a href="{{ url_for('contact') }}">Contacto</a></li>
                         </ul>
