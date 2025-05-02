@@ -8,6 +8,128 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
+<style>
+  /* Estilos para el menú móvil (manteniendo tus estilos originales) */
+  @media screen and (max-width: 768px) {
+      header {
+          position: relative;
+          padding: 15px 20px;
+      }
+      
+      .logo {
+          z-index: 1001;
+      }
+      
+      .mobile-menu-toggle {
+          display: block;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 1001;
+          color: white;
+      }
+      
+      nav {
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background-color: black;
+          padding: 20px 0;
+          text-align: center;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 1000;
+      }
+      
+      nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+      }
+      
+      .main-menu {
+          flex-direction: column;
+          display: flex;
+      }
+      
+      .main-menu li {
+          margin: 10px 0;
+      }
+      
+      .main-menu a {
+          font-size: 16px;
+      }
+  }
+  
+  @media screen and (min-width: 769px) {
+      .mobile-menu-toggle {
+          display: none;
+      }
+      
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 5%;
+      }
+      
+      .main-menu {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .main-menu li {
+          margin: 0 15px;
+      }
+  }
+
+  /* Estilos para las secciones "about-preview" y "philosophy-section" */
+  .about-preview, .philosophy-section {
+      display: flex;
+      align-items: center;
+      padding: 50px 5%;
+      flex-wrap: wrap;
+  }
+
+  .about-content, .philosophy-content {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+  }
+
+  .about-image, .philosophy-video {
+      flex: 1;
+      min-width: 300px;
+      overflow: hidden;
+  }
+
+  .about-video, .philosophy-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+  }
+
+  /* En pantallas más pequeñas, apilar elementos */
+  @media screen and (max-width: 768px) {
+      .about-preview, .philosophy-section {
+          flex-direction: column;
+      }
+      
+      .about-content, .about-image, .philosophy-content, .philosophy-video {
+          width: 100%;
+      }
+  }
+
+  /* Estilo específico para el orden inverso en la sección de filosofía */
+  .philosophy-section {
+      background-color: #f9f9f9;
+      flex-direction: row-reverse;
+  }
+</style>
 <body>
   <header>
     <div class="logo">
@@ -37,24 +159,24 @@
     <section class="about-preview">
       <div class="about-content">
           <h2>NUESTRA HISTORIA</h2>
-          <p>Histroia del estudio</p>
+          <p>Historia del estudio</p>
       </div>
       <div class="about-image">
           <video autoplay muted loop playsinline class="about-video">
               <source src="{{ url_for('static', filename='videos/presentacion3.mp4') }}" type="video/webm">
-            </video>
+          </video>
       </div>
-  </section>
+    </section>
 
-    <section class="our-philosophy">
-      <div class="container">
-        <div class="philosophy-content">
+    <section class="philosophy-section">
+      <div class="philosophy-content">
           <h2>Nuestra Filosofía</h2>
-          <p>Creemos que cada modelo tiene algo único que ofrecer...</p>
-        </div>
-        <div class="philosophy-image">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnnvYoenhVH_YGUXavJlr03Joji0O5IA-CVg&s" alt="Nuestra Filosofía" />
-        </div>
+          <p>Creemos que cada modelo tiene algo único que ofrecer. Nuestra filosofía se basa en potenciar las cualidades individuales de cada uno de nuestros talentos, ayudándoles a desarrollar su máximo potencial en la industria.</p>
+      </div>
+      <div class="philosophy-video">
+          <video autoplay muted loop playsinline>
+              <source src="{{ url_for('static', filename='videos/presentacion3.mp4') }}" type="video/webm">
+          </video>
       </div>
     </section>
 

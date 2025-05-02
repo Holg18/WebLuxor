@@ -9,6 +9,85 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
+<style>
+    /* Estilos para el menú móvil (manteniendo tus estilos originales) */
+    @media screen and (max-width: 768px) {
+        header {
+            position: relative;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            color: white;
+        }
+        
+        nav {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            padding: 20px 0;
+            text-align: center;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .main-menu {
+            flex-direction: column;
+            display: flex;
+        }
+        
+        .main-menu li {
+            margin: 10px 0;
+        }
+        
+        .main-menu a {
+            font-size: 16px;
+        }
+    }
+    
+    @media screen and (min-width: 769px) {
+        .mobile-menu-toggle {
+            display: none;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-menu li {
+            margin: 0 15px;
+        }
+    }
+</style>
     <body>
         <header>
             <div class="logo">

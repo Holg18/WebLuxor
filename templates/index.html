@@ -6,6 +6,85 @@
     <title>Inicio - Luxor Agencia de Modelos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para el menú móvil (manteniendo tus estilos originales) */
+        @media screen and (max-width: 768px) {
+            header {
+                position: relative;
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                z-index: 1001;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 1001;
+                color: white;
+            }
+            
+            nav {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: black;
+                padding: 20px 0;
+                text-align: center;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .main-menu {
+                flex-direction: column;
+                display: flex;
+            }
+            
+            .main-menu li {
+                margin: 10px 0;
+            }
+            
+            .main-menu a {
+                font-size: 16px;
+            }
+        }
+        
+        @media screen and (min-width: 769px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5%;
+            }
+            
+            .main-menu {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .main-menu li {
+                margin: 0 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -122,6 +201,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Slider de la sección hero
             const slides = document.querySelectorAll('.hero-slide'); 
             const prevBtn = document.querySelector('.prev-slide');
             const nextBtn = document.querySelector('.next-slide');
@@ -150,19 +230,58 @@
                 slideInterval = setInterval(nextSlide, 5000);
             }
 
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-        });
-            document.addEventListener('DOMContentLoaded', function() {
-                const modelCards = document.querySelectorAll('.model-card');
-                const mobileToggle = document.querySelector('.mobile-menu-toggle');
-                const nav = document.querySelector('nav');x
-    
-                // Menú móvil
-                mobileToggle.addEventListener('click', () => {
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', prevSlide);
+                nextBtn.addEventListener('click', nextSlide);
+            }
+
+            // Menú móvil
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            const menuItems = document.querySelectorAll('.main-menu a');
+            
+            if (mobileToggle && nav) {
+                mobileToggle.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Evitar que el clic se propague
                     nav.classList.toggle('active');
+                    
+                    // Cambiar el icono del botón de menú
+                    if (nav.classList.contains('active')) {
+                        mobileToggle.textContent = '✕';
+                    } else {
+                        mobileToggle.textContent = '☰';
+                    }
                 });
-    
+                
+                // Cerrar el menú al hacer clic en un enlace
+                menuItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        if (window.innerWidth <= 768) {
+                            nav.classList.remove('active');
+                            mobileToggle.textContent = '☰';
+                        }
+                    });
+                });
+                
+                // Cerrar el menú al hacer clic en cualquier parte de la página
+                document.addEventListener('click', (e) => {
+                    if (!nav.contains(e.target) && e.target !== mobileToggle) {
+                        if (nav.classList.contains('active')) {
+                            nav.classList.remove('active');
+                            mobileToggle.textContent = '☰';
+                        }
+                    }
+                });
+                
+                // Evitar que los clics dentro del menú lo cierren
+                nav.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+            
+            // Verificar si existen elementos antes de trabajar con ellos
+            const playButtons = document.querySelectorAll('.play-button');
+            if (playButtons && playButtons.length > 0) {
                 // Reproducción de videos al hacer clic en el botón de play
                 playButtons.forEach(button => {
                     button.addEventListener('click', function() {
@@ -170,22 +289,28 @@
                         const video = videoContainer.querySelector('video');
                         const preview = videoContainer.querySelector('img:not(.gif-preview)');
                         
-                        // Ocultar la imagen de vista previa y el botón de play
-                        preview.style.display = 'none';
-                        this.style.display = 'none';
-                        
-                        // Mostrar y reproducir el video
-                        video.style.display = 'block';
-                        video.play();
+                        if (video && preview) {
+                            // Ocultar la imagen de vista previa y el botón de play
+                            preview.style.display = 'none';
+                            this.style.display = 'none';
+                            
+                            // Mostrar y reproducir el video
+                            video.style.display = 'block';
+                            video.play();
+                        }
                     });
                 });
-    
+            }
+            
+            // Verificar si existen videos para manejarlos
+            const videos = document.querySelectorAll('.video-container video');
+            if (videos && videos.length > 0) {
                 // Ocultar videos por defecto y mostrarlos solo cuando se hace clic en el botón
-                document.querySelectorAll('.video-container video').forEach(video => {
+                videos.forEach(video => {
                     video.style.display = 'none';
                 });
-            });
-    </script>      
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+            }
+        });
+    </script>
 </body>
 </html>
