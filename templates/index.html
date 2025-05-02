@@ -153,23 +153,38 @@
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
         });
-        const mainMenu = document.querySelector('.main-menu');
-
-        if (menuToggle && mainMenu) {
-            menuToggle.addEventListener('click', function () {
-                const isActive = mainMenu.classList.toggle('active');
-                menuToggle.textContent = isActive ? '✖' : '☰';
-            });
+            document.addEventListener('DOMContentLoaded', function() {
+                const modelCards = document.querySelectorAll('.model-card');
+                const mobileToggle = document.querySelector('.mobile-menu-toggle');
+                const nav = document.querySelector('nav');x
     
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768) {
-                    mainMenu.classList.remove('active');
-                    mainMenu.style.display = 'flex';
-                } else {
-                    mainMenu.style.display = 'none';
-                }
+                // Menú móvil
+                mobileToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                });
+    
+                // Reproducción de videos al hacer clic en el botón de play
+                playButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const videoContainer = this.parentElement;
+                        const video = videoContainer.querySelector('video');
+                        const preview = videoContainer.querySelector('img:not(.gif-preview)');
+                        
+                        // Ocultar la imagen de vista previa y el botón de play
+                        preview.style.display = 'none';
+                        this.style.display = 'none';
+                        
+                        // Mostrar y reproducir el video
+                        video.style.display = 'block';
+                        video.play();
+                    });
+                });
+    
+                // Ocultar videos por defecto y mostrarlos solo cuando se hace clic en el botón
+                document.querySelectorAll('.video-container video').forEach(video => {
+                    video.style.display = 'none';
+                });
             });
-        }
     </script>      
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

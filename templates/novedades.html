@@ -175,7 +175,27 @@
     
                 prevBtn.addEventListener('click', prevSlide);
                 nextBtn.addEventListener('click', nextSlide);
-            });
+            })
+                document.addEventListener('DOMContentLoaded', function() {
+                    const filterButtons = document.querySelectorAll('.filter-btn');
+                    const modelCards = document.querySelectorAll('.model-card');
+                    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+                    const nav = document.querySelector('nav');
+        
+                    // Menú móvil
+                    mobileToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+        
+                    // Reproducción de videos al hacer clic en el botón de play
+                    playButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const videoContainer = this.parentElement;
+                            const video = videoContainer.querySelector('video');
+                            const preview = videoContainer.querySelector('img:not(.gif-preview)');
+                        });
+                    });
+                });
         </script> 
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>

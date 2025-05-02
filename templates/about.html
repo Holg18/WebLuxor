@@ -123,7 +123,89 @@
         <p>&copy; LUXOR AGENCIA MODELS. Agencia de Modelos Webcam 2022</p>
     </div>
 </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          const modelCards = document.querySelectorAll('.model-card');
+          const mobileToggle = document.querySelector('.mobile-menu-toggle');
+          const nav = document.querySelector('nav');
+          const playButtons = document.querySelectorAll('.play-button');
 
+          // Obtener el parámetro de categoría de la URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const categoriaParam = urlParams.get('categoria');
+          
+          // Aplicar filtro según la URL
+          if (categoriaParam) {
+              filterButtons.forEach(btn => {
+                  btn.classList.remove('active');
+                  if (btn.getAttribute('data-filter') === categoriaParam) {
+                      btn.classList.add('active');
+                  }
+              });
+              
+              // Filtrar las tarjetas según la categoría
+              modelCards.forEach(card => {
+                  if (categoriaParam === 'todos') {
+                      card.style.display = 'block';
+                  } else {
+                      card.style.display = card.getAttribute('data-category') === categoriaParam ? 'block' : 'none';
+                  }
+              });
+          }
+
+          // Filtro de categorías (para compatibilidad si los enlaces no funcionan)
+          filterButtons.forEach(button => {
+              button.addEventListener('click', function(e) {
+                  // Si es un enlace, permite el comportamiento normal
+                  if (this.tagName === 'A') {
+                      return;
+                  }
+                  
+                  // Si es un botón normal
+                  e.preventDefault();
+                  filterButtons.forEach(btn => btn.classList.remove('active'));
+                  this.classList.add('active');
+
+                  const filter = this.getAttribute('data-filter');
+                  modelCards.forEach(card => {
+                      if (filter === 'all') {
+                          card.style.display = 'block';
+                      } else {
+                          card.style.display = card.getAttribute('data-category') === filter ? 'block' : 'none';
+                      }
+                  });
+              });
+          });
+
+          // Menú móvil
+          mobileToggle.addEventListener('click', () => {
+              nav.classList.toggle('active');
+          });
+
+          // Reproducción de videos al hacer clic en el botón de play
+          playButtons.forEach(button => {
+              button.addEventListener('click', function() {
+                  const videoContainer = this.parentElement;
+                  const video = videoContainer.querySelector('video');
+                  const preview = videoContainer.querySelector('img:not(.gif-preview)');
+                  
+                  // Ocultar la imagen de vista previa y el botón de play
+                  preview.style.display = 'none';
+                  this.style.display = 'none';
+                  
+                  // Mostrar y reproducir el video
+                  video.style.display = 'block';
+                  video.play();
+              });
+          });
+
+          // Ocultar videos por defecto y mostrarlos solo cuando se hace clic en el botón
+          document.querySelectorAll('.video-container video').forEach(video => {
+              video.style.display = 'none';
+          });
+      });
+    </script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
