@@ -43,7 +43,7 @@
                 <div class="model-card" data-category="fotos">
                     <div class="model-image">
                         <img src="{{ url_for('static', filename='images/modelo1.jpg') }}" alt="Modelo 1">
-                        <img class="gif-preview" src="{{ url_for('static', filename='images/modelo1-gif.gif') }}" alt="Modelo 1 GIF">
+                        <img class="gif-preview" src="{{ url_for('static', filename='videos/modelo1.gif') }}" alt="Modelo 1 GIF">
                     </div>
                     <div class="model-info">
                         <h3>Modelo 1</h3>
@@ -53,7 +53,7 @@
                 <div class="model-card" data-category="fotos">
                     <div class="model-image">
                         <img src="{{ url_for('static', filename='images/modelo2.jpg') }}" alt="Modelo 2">
-                        <img class="gif-preview" src="{{ url_for('static', filename='images/modelo2-gif.gif') }}" alt="Modelo 2 GIF">
+                        <img class="gif-preview" src="{{ url_for('static', filename='videos/modelo2.gif') }}" alt="Modelo 2 GIF">
                     </div>
                     <div class="model-info">
                         <h3>Modelo 2</h3>
@@ -63,7 +63,7 @@
                 <div class="model-card" data-category="fotos">
                     <div class="model-image">
                         <img src="{{ url_for('static', filename='images/modelo3.jpg') }}" alt="Modelo 3">
-                        <img class="gif-preview" src="{{ url_for('static', filename='images/modelo3-gif.gif') }}" alt="Modelo 3 GIF">
+                        <img class="gif-preview" src="{{ url_for('static', filename='videos/modelo3.gif') }}" alt="Modelo 3 GIF">
                     </div>
                     <div class="model-info">
                         <h3>Modelo 3</h3>
@@ -73,10 +73,10 @@
                 <!-- SECCIÓN DE VIDEOS -->
                 <div class="model-card" data-category="videos">
                     <div class="model-image video-container">
-                        <img src="{{ url_for('static', filename='images/video-preview1.jpg') }}" alt="Video Modelo 1">
+                        <img src="{{ url_for('static', filename='images/modelov1.jpg') }}" alt="Video Modelo 1">
                         <div class="play-button">▶</div>
                         <video width="100%" height="100%" controls>
-                            <source src="{{ url_for('static', filename='videos/modelo1-video.mp4') }}" type="video/mp4">
+                            <source src="{{ url_for('static', filename='videos/videom1.mp4') }}" type="video/mp4">
                             Tu navegador no soporta videos HTML5.
                         </video>
                     </div>
@@ -87,25 +87,36 @@
 
                 <div class="model-card" data-category="videos">
                     <div class="model-image video-container">
-                        <img src="{{ url_for('static', filename='images/video-preview2.jpg') }}" alt="Video Modelo 2">
+                        <img src="{{ url_for('static', filename='images/modelov2.jpeg') }}" alt="Video Modelo 2">
                         <div class="play-button">▶</div>
                         <video width="100%" height="100%" controls>
-                            <source src="{{ url_for('static', filename='videos/modelo2-video.mp4') }}" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
+                            <source src="{{ url_for('static', filename='videos/videom2.mp4') }}" type="video/mp4">
                         </video>
                     </div>
                     <div class="model-info">
                         <h3>Video Modelo 2</h3>
                     </div>
                 </div>
+                <div class="model-card" data-category="videos">
+                    <div class="model-image video-container">
+                        <img src="{{ url_for('static', filename='images/modelov3.jpeg') }}" alt="Video Modelo 3">
+                        <div class="play-button">▶</div>
+                        <video width="100%" height="100%" controls>
+                            <source src="{{ url_for('static', filename='videos/videom3.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="model-info">
+                        <h3>Video Modelo 3</h3>
+                    </div>
+                </div>
 
                 <!-- SECCIÓN DE TOMAS FALSAS -->
                 <div class="model-card" data-category="tomas-falsas">
                     <div class="model-image video-container">
-                        <img src="{{ url_for('static', filename='images/toma-falsa1.jpg') }}" alt="Toma Falsa 1">
+                        <img src="{{ url_for('static', filename='images/TfalsaF1.jpg') }}" alt="Toma Falsa 1">
                         <div class="play-button">▶</div>
                         <video width="100%" height="100%" controls>
-                            <source src="{{ url_for('static', filename='videos/toma-falsa1.mp4') }}" type="video/mp4">
+                            <source src="{{ url_for('static', filename='videos/Tfalsa1.mp4') }}" type="video/mp4">
                             Tu navegador no soporta videos HTML5.
                         </video>
                     </div>
@@ -116,10 +127,10 @@
 
                 <div class="model-card" data-category="tomas-falsas">
                     <div class="model-image video-container">
-                        <img src="{{ url_for('static', filename='images/toma-falsa2.jpg') }}" alt="Toma Falsa 2">
+                        <img src="{{ url_for('static', filename='images/TfalsaF2.jpg') }}" alt="Toma Falsa 2">
                         <div class="play-button">▶</div>
                         <video width="100%" height="100%" controls>
-                            <source src="{{ url_for('static', filename='videos/toma-falsa2.mp4') }}" type="video/mp4">
+                            <source src="{{ url_for('static', filename='videos/Tfalsa2.avif') }}" type="video/mp4">
                             Tu navegador no soporta videos HTML5.
                         </video>
                     </div>
