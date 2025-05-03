@@ -40,6 +40,7 @@ header {
 .main-menu a::after {
     content: '';
     position: absolute;
+    font-family: 'Playfair Display', serif;
     bottom: 0;
     left: 0;
     width: 0;
@@ -115,12 +116,14 @@ header {
         font-weight: 300;
         letter-spacing: 2px;
         margin-bottom: 30px;
+        font-family: 'Playfair Display', serif;
     }
     
     h3 {
         font-size: 1.2rem;
         font-weight: 400;
         margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
     }
     
     p {

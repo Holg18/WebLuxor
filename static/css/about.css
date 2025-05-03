@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -233,16 +233,17 @@ header {
 }
 
 .join-us .btn {
-    background-color: #f39c12;
+    background-color: #0e1026;
     padding: 15px 25px;
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 8px;
+    margin-top: 4px;
 }
 
 .join-us .btn:hover {
-    background-color: #e67e22;
+    background-color: #0b0976;
 }
 
 /* Footer */
