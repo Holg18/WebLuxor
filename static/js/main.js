@@ -58,5 +58,5 @@
     });
 
     window.addEventListener('scroll', checkReveal);
-    checkReveal(); // mostrar elementos visibles al cargar
-;
+    checkReveal(); // mostrar elementos visibles al cargar;
+    

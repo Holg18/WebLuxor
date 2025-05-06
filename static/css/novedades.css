@@ -82,6 +82,7 @@ h1, h2, h3 {
     font-size: 2.5;
 }
 
+
 .main-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
