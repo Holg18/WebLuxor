@@ -1,4 +1,21 @@
-/* General Styles */
+/* 
+======================
+TABLA DE CONTENIDOS
+======================
+1. Configuración General
+2. Header y Navegación
+3. Sección About 
+4. Sección Team
+5. Sección Join Us
+6. Footer
+7. Media Queries
+8. Modales (50%)
+====================== 
+*/
+
+/* ====================== 
+1. CONFIGURACIÓN GENERAL
+====================== */
 body {
     font-family: 'Playfair Display', serif;
     margin: 0;
@@ -6,6 +23,9 @@ body {
     background-color: #f4f4f4;
 }
 
+/* ====================== 
+2. HEADER Y NAVEGACIÓN 
+====================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -20,7 +40,7 @@ header {
     width: auto;
 }
 
-/* Estilos para el menú principal */
+/* Menú principal */
 .main-menu {
     display: flex;
     list-style: none;
@@ -59,7 +79,7 @@ header {
     width: 100%;
 }
 
-/* Estilos para el menú móvil */
+/* Menú móvil */
 .mobile-menu-toggle {
     display: none;
     cursor: pointer;
@@ -67,21 +87,22 @@ header {
     color: white;
 }
 
-
+/* ====================== 
+3. SECCIÓN ABOUT
+====================== */
 /* About Header */
 .about-header {
     background-color: #222;
     color: #fff;
     padding: 30px 0;
     text-align: center;
-    margin-top: 0.5%;
+    margin-top: 70px;
 }
 
 .about-header h1 {
     font-size: 3rem;
     margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
-
 }
 
 .about-header p {
@@ -89,7 +110,7 @@ header {
     color: #ddd;
 }
 
-/* Historia y Filosofía */
+/* Secciones de Historia y Filosofía */
 .about-story, .our-philosophy {
     display: flex;
     justify-content: flex-start;
@@ -106,80 +127,53 @@ header {
     flex-direction: row-reverse; /* Filosofía: imagen a la derecha, texto a la izquierda */
 }
 
-.about-story .story-content, .our-philosophy .philosophy-content {
+.about-story .story-content, 
+.our-philosophy .philosophy-content {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.about-story .story-content h2, .our-philosophy .philosophy-content h2 {
+.about-story .story-content h2, 
+.our-philosophy .philosophy-content h2 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.about-story .story-content p, .our-philosophy .philosophy-content p {
+.about-story .story-content p, 
+.our-philosophy .philosophy-content p {
     font-size: 1.1rem;
     color: #555;
     line-height: 1.6;
 }
 
-.about-story .story-image, .our-philosophy .philosophy-image {
+.about-story .story-image, 
+.our-philosophy .philosophy-image {
     flex: 1;
     max-width: 400px;
     padding: 20px;
 }
 
-.about-story .story-image img, .our-philosophy .philosophy-image img {
+.about-story .story-image img, 
+.our-philosophy .philosophy-image img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-/* Historia: imagen a la izquierda y texto a la derecha */
-.about-story {
-    flex-direction: row;
-    align-items: center;
-}
-
+/* Alineación específica */
 .about-story .story-content {
     text-align: left;
-}
-
-/* Filosofía: imagen a la derecha y texto a la izquierda */
-.our-philosophy {
-    flex-direction: row-reverse;
 }
 
 .our-philosophy .philosophy-content {
     text-align: left;
 }
 
-@media (max-width: 768px) {
-    .about-story, .our-philosophy {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-story .story-content, .our-philosophy .philosophy-content {
-        padding: 0;
-    }
-
-    .about-story .story-image img, .our-philosophy .philosophy-image img {
-        max-width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .about-story .story-content h2, .our-philosophy .philosophy-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .about-story .story-content p, .our-philosophy .philosophy-content p {
-        font-size: 1rem;
-    }
-}
-
-/* Team Section */
+/* ====================== 
+4. SECCIÓN TEAM
+====================== */
 .team {
     background-color: #fff;
     padding: 50px 0;
@@ -203,17 +197,18 @@ header {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease; /* Transición suave para el zoom */
+    transition: transform 0.3s ease;
 }
 
 .team-member:hover {
-    transform: scale(1.05); /* Efecto de zoom */
+    transform: scale(1.05);
 }
 
 .team-member img {
     border-radius: 50%;
     max-width: 120px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .team-member h3 {
@@ -225,7 +220,9 @@ header {
     color: #777;
 }
 
-/* Join Us Section */
+/* ====================== 
+5. SECCIÓN JOIN US
+====================== */
 .join-us {
     background-color: #222;
     color: #fff;
@@ -248,7 +245,9 @@ header {
     background-color: #0b0976;
 }
 
-/* Footer */
+/* ====================== 
+6. FOOTER
+====================== */
 footer {
     background-color: #000;
     color: white;
@@ -321,8 +320,11 @@ footer {
     color: #aaa;
 }
 
-/* Estilos responsivos */
+/* ====================== 
+7. MEDIA QUERIES
+====================== */
 @media (max-width: 768px) {
+    /* Navegación móvil */
     .mobile-menu-toggle {
         display: block;
     }
@@ -354,7 +356,31 @@ footer {
     .main-menu li {
         margin: 10px 0;
     }
+    
+    /* Secciones About responsive */
+    .about-story, .our-philosophy {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .about-story .story-content, .our-philosophy .philosophy-content {
+        padding: 0;
+    }
+
+    .about-story .story-image img, .our-philosophy .philosophy-image img {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .about-story .story-content h2, .our-philosophy .philosophy-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-story .story-content p, .our-philosophy .philosophy-content p {
+        font-size: 1rem;
+    }
+    
+    /* Footer responsive */
     .footer-links {
         flex-direction: column;
         align-items: center;
@@ -363,5 +389,69 @@ footer {
     .footer-column {
         text-align: center;
         width: 100%;
+    }
+}
+
+/* ====================== 
+8. MODALES (50%)
+====================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 25%; /* Centrado horizontal al 50% */
+    top: 10%;
+    width: 50%; /* Ancho del 50% */
+    max-height: 80%;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    background-color: #0e1026;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-modal {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+/* Estilos adicionales para modales en dispositivos móviles */
+@media (max-width: 768px) {
+    .modal {
+        left: 5%;
+        width: 90%;
     }
 }
