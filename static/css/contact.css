@@ -474,3 +474,127 @@ footer {
     opacity: 1;
     visibility: visible;
 }
+/* Estilos para el menú móvil (manteniendo tus estilos originales) */
+@media screen and (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 15px 20px;
+    }
+    
+    .logo {
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1001;
+        color: white;
+    }
+    
+    nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        padding: 20px 0;
+        text-align: center;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .main-menu {
+        flex-direction: column;
+        display: flex;
+    }
+    
+    .main-menu li {
+        margin: 10px 0;
+    }
+    
+    .main-menu a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+    }
+    
+    .main-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main-menu li {
+        margin: 0 15px;
+    }
+}
+
+/* Nuevos estilos para el formulario con feedback */
+.form-message {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.form-message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.form-message.error {
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid #F44336;
+    color: #F44336;
+}
+
+/* Estilo para el botón de spin loader */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

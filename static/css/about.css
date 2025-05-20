@@ -1,457 +1,457 @@
-/* 
-======================
-TABLA DE CONTENIDOS
-======================
-1. Configuración General
-2. Header y Navegación
-3. Sección About 
-4. Sección Team
-5. Sección Join Us
-6. Footer
-7. Media Queries
-8. Modales (50%)
-====================== 
-*/
+    /* 
+    ======================
+    TABLA DE CONTENIDOS
+    ======================
+    1. Configuración General
+    2. Header y Navegación
+    3. Sección About 
+    4. Sección Team
+    5. Sección Join Us
+    6. Footer
+    7. Media Queries
+    8. Modales (50%)
+    ====================== 
+    */
 
-/* ====================== 
-1. CONFIGURACIÓN GENERAL
-====================== */
-body {
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-/* ====================== 
-2. HEADER Y NAVEGACIÓN 
-====================== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: #000;
-    transition: all 0.3s ease;
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
-}
-
-/* Menú principal */
-.main-menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.main-menu li {
-    margin: 0 15px;
-}
-
-.main-menu a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-}
-
-.main-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 0.3s ease;
-}
-
-.main-menu a:hover::after {
-    width: 100%;
-}
-
-/* Menú móvil */
-.mobile-menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-}
-
-/* ====================== 
-3. SECCIÓN ABOUT
-====================== */
-/* About Header */
-.about-header {
-    background-color: #222;
-    color: #fff;
-    padding: 30px 0;
-    text-align: center;
-    margin-top: 70px;
-}
-
-.about-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    font-family: 'Playfair Display', serif;
-}
-
-.about-header p {
-    font-size: 1.2rem;
-    color: #ddd;
-}
-
-/* Secciones de Historia y Filosofía */
-.about-story, .our-philosophy {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-}
-
-.about-story {
-    flex-direction: row; /* Historia: imagen a la izquierda, texto a la derecha */
-}
-
-.our-philosophy {
-    flex-direction: row-reverse; /* Filosofía: imagen a la derecha, texto a la izquierda */
-}
-
-.about-story .story-content, 
-.our-philosophy .philosophy-content {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.about-story .story-content h2, 
-.our-philosophy .philosophy-content h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.about-story .story-content p, 
-.our-philosophy .philosophy-content p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-.about-story .story-image, 
-.our-philosophy .philosophy-image {
-    flex: 1;
-    max-width: 400px;
-    padding: 20px;
-}
-
-.about-story .story-image img, 
-.our-philosophy .philosophy-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Alineación específica */
-.about-story .story-content {
-    text-align: left;
-}
-
-.our-philosophy .philosophy-content {
-    text-align: left;
-}
-
-/* ====================== 
-4. SECCIÓN TEAM
-====================== */
-.team {
-    background-color: #fff;
-    padding: 50px 0;
-}
-
-.team h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.team-member {
-    background-color: #fafafa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-    transform: scale(1.05);
-}
-
-.team-member img {
-    border-radius: 50%;
-    max-width: 120px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.team-member h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-}
-
-.team-member p {
-    color: #777;
-}
-
-/* ====================== 
-5. SECCIÓN JOIN US
-====================== */
-.join-us {
-    background-color: #222;
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-    margin-bottom: 3px;
-}
-
-.join-us .btn {
-    background-color: #0e1026;
-    padding: 15px 25px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 8px;
-    margin-top: 4px;
-}
-
-.join-us .btn:hover {
-    background-color: #0b0976;
-}
-
-/* ====================== 
-6. FOOTER
-====================== */
-footer {
-    background-color: #000;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-logo img {
-    height: 60px;
-    margin-bottom: 30px;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 20px;
-    padding: 0 15px;
-}
-
-.footer-column h3 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column li {
-    margin-bottom: 10px;
-}
-
-.footer-column a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-column a:hover {
-    color: white;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: 14px;
-    color: #aaa;
-}
-
-/* ====================== 
-7. MEDIA QUERIES
-====================== */
-@media (max-width: 768px) {
-    /* Navegación móvil */
-    .mobile-menu-toggle {
-        display: block;
+    /* ====================== 
+    1. CONFIGURACIÓN GENERAL
+    ====================== */
+    body {
+        font-family: 'Playfair Display', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
     }
 
-    nav {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: black;
-        padding: 20px 0;
-        text-align: center;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
+    /* ====================== 
+    2. HEADER Y NAVEGACIÓN 
+    ====================== */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: #000;
         transition: all 0.3s ease;
     }
 
-    nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+    .logo img {
+        height: 50px;
+        width: auto;
     }
 
+    /* Menú principal */
     .main-menu {
-        flex-direction: column;
-    }
-
-    .main-menu li {
-        margin: 10px 0;
-    }
-    
-    /* Secciones About responsive */
-    .about-story, .our-philosophy {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-story .story-content, .our-philosophy .philosophy-content {
+        display: flex;
+        list-style: none;
+        margin: 0;
         padding: 0;
     }
 
-    .about-story .story-image img, .our-philosophy .philosophy-image img {
-        max-width: 80%;
+    .main-menu li {
+        margin: 0 15px;
+    }
+
+    .main-menu a {
+        color: white;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+    }
+
+    .main-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease;
+    }
+
+    .main-menu a:hover::after {
+        width: 100%;
+    }
+
+    /* Menú móvil */
+    .mobile-menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+    }
+
+    /* ====================== 
+    3. SECCIÓN ABOUT
+    ====================== */
+    /* About Header */
+    .about-header {
+        background-color: #222;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    .about-header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .about-header p {
+        font-size: 1.2rem;
+        color: #ddd;
+    }
+
+    /* Secciones de Historia y Filosofía */
+    .about-story, .our-philosophy {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 60px;
+        flex-wrap: wrap;
+    }
+
+    .about-story {
+        flex-direction: row; /* Historia: imagen a la izquierda, texto a la derecha */
+    }
+
+    .our-philosophy {
+        flex-direction: row-reverse; /* Filosofía: imagen a la derecha, texto a la izquierda */
+    }
+
+    .about-story .story-content, 
+    .our-philosophy .philosophy-content {
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .about-story .story-content h2, 
+    .our-philosophy .philosophy-content h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .about-story .story-content p, 
+    .our-philosophy .philosophy-content p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .about-story .story-image, 
+    .our-philosophy .philosophy-image {
+        flex: 1;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .about-story .story-image img, 
+    .our-philosophy .philosophy-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Alineación específica */
+    .about-story .story-content {
+        text-align: left;
+    }
+
+    .our-philosophy .philosophy-content {
+        text-align: left;
+    }
+
+    /* ====================== 
+    4. SECCIÓN TEAM
+    ====================== */
+    .team {
+        background-color: #fff;
+        padding: 50px 0;
+    }
+
+    .team h2 {
+        text-align: center;
+        font-size: 2.5rem;
         margin-bottom: 20px;
     }
 
-    .about-story .story-content h2, .our-philosophy .philosophy-content h2 {
-        font-size: 1.8rem;
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
     }
 
-    .about-story .story-content p, .our-philosophy .philosophy-content p {
-        font-size: 1rem;
+    .team-member {
+        background-color: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
     }
-    
-    /* Footer responsive */
-    .footer-links {
+
+    .team-member:hover {
+        transform: scale(1.05);
+    }
+
+    .team-member img {
+        border-radius: 50%;
+        max-width: 120px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .team-member h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .team-member p {
+        color: #777;
+    }
+
+    /* ====================== 
+    5. SECCIÓN JOIN US
+    ====================== */
+    .join-us {
+        background-color: #222;
+        color: #fff;
+        padding: 50px 0;
+        text-align: center;
+        margin-bottom: 3px;
+    }
+
+    .join-us .btn {
+        background-color: #0e1026;
+        padding: 15px 25px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        border-radius: 8px;
+        margin-top: 4px;
+    }
+
+    .join-us .btn:hover {
+        background-color: #0b0976;
+    }
+
+    /* ====================== 
+    6. FOOTER
+    ====================== */
+    footer {
+        background-color: #000;
+        color: white;
+        padding: 40px 0 20px;
+    }
+
+    .footer-content {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-logo img {
+        height: 60px;
+        margin-bottom: 30px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 30px;
     }
 
     .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+
+    .footer-column h3 {
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-column li {
+        margin-bottom: 10px;
+    }
+
+    .footer-column a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+        color: white;
+    }
+
+    .copyright {
         text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #333;
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        font-size: 14px;
+        color: #aaa;
     }
-}
 
-/* ====================== 
-8. MODALES (50%)
-====================== */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 25%; /* Centrado horizontal al 50% */
-    top: 10%;
-    width: 50%; /* Ancho del 50% */
-    max-height: 80%;
-    overflow-y: auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+    /* ====================== 
+    7. MEDIA QUERIES
+    ====================== */
+    @media (max-width: 768px) {
+        /* Navegación móvil */
+        .mobile-menu-toggle {
+            display: block;
+        }
 
-.modal-header {
-    padding: 15px 20px;
-    background-color: #0e1026;
-    color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        nav {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            padding: 20px 0;
+            text-align: center;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
 
-.modal-title {
-    font-size: 1.5rem;
-    margin: 0;
-}
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
 
-.close-modal {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
+        .main-menu {
+            flex-direction: column;
+        }
 
-.modal-content {
-    padding: 20px;
-}
+        .main-menu li {
+            margin: 10px 0;
+        }
+        
+        /* Secciones About responsive */
+        .about-story, .our-philosophy {
+            flex-direction: column;
+            text-align: center;
+        }
 
-.modal-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 999;
-}
+        .about-story .story-content, .our-philosophy .philosophy-content {
+            padding: 0;
+        }
 
-/* Estilos adicionales para modales en dispositivos móviles */
-@media (max-width: 768px) {
+        .about-story .story-image img, .our-philosophy .philosophy-image img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .about-story .story-content h2, .our-philosophy .philosophy-content h2 {
+            font-size: 1.8rem;
+        }
+
+        .about-story .story-content p, .our-philosophy .philosophy-content p {
+            font-size: 1rem;
+        }
+        
+        /* Footer responsive */
+        .footer-links {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    /* ====================== 
+    8. MODALES (50%)
+    ====================== */
     .modal {
-        left: 5%;
-        width: 90%;
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 25%; /* Centrado horizontal al 50% */
+        top: 10%;
+        width: 50%; /* Ancho del 50% */
+        max-height: 80%;
+        overflow-y: auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-}
+
+    .modal-header {
+        padding: 15px 20px;
+        background-color: #0e1026;
+        color: white;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .close-modal {
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+
+    /* Estilos adicionales para modales en dispositivos móviles */
+    @media (max-width: 768px) {
+        .modal {
+            left: 5%;
+            width: 90%;
+        }
+    }

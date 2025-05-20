@@ -10,85 +10,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     </head>
-    <style>
-        /* Estilos para el menú móvil (manteniendo tus estilos originales) */
-        @media screen and (max-width: 768px) {
-            header {
-                position: relative;
-                padding: 15px 20px;
-            }
-            
-            .logo {
-                z-index: 1001;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-                z-index: 1001;
-                color: white;
-            }
-            
-            nav {
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: black;
-                padding: 20px 0;
-                text-align: center;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 1000;
-            }
-            
-            nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .main-menu {
-                flex-direction: column;
-                display: flex;
-            }
-            
-            .main-menu li {
-                margin: 10px 0;
-            }
-            
-            .main-menu a {
-                font-size: 16px;
-            }
-        }
-        
-        @media screen and (min-width: 769px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-            
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 15px 5%;
-            }
-            
-            .main-menu {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .main-menu li {
-                margin: 0 15px;
-            }
-        }
-    </style>
     <body>
         <header>
             <div class="logo">
@@ -174,7 +95,7 @@
                     
                     <div class="contact-form-container">
                         <h2>COMUNÍQUESE CON NOSOTROS</h2>
-                        <form class="contact-form" action="#" method="post">
+                        <form id="contactForm" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Nombre Completo</label>
                                 <input type="text" id="name" name="name" required>
@@ -182,6 +103,10 @@
                             <div class="form-group">
                                 <label for="email">Correo Electrónico</label>
                                 <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono (con WhatsApp)</label>
+                                <input type="tel" id="phone" name="phone" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Asunto</label>
@@ -192,8 +117,9 @@
                                 <textarea id="message" name="message" rows="6" required></textarea>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn">ENVIAR CONSULTA</button>
+                                <button type="submit" id="submitBtn" class="btn">ENVIAR CONSULTA</button>
                             </div>
+                            <div id="formMessage" class="form-message"></div>
                         </form>
                     </div>
                 </div>
@@ -317,6 +243,107 @@
                 document.querySelectorAll('.video-container video').forEach(video => {
                     video.style.display = 'none';
                 });
+
+                // --- NUEVO CÓDIGO: Formulario con envío a WhatsApp ---
+                const contactForm = document.getElementById('contactForm');
+                const submitBtn = document.getElementById('submitBtn');
+                const formMessage = document.getElementById('formMessage');
+                
+                // Cambia este número por tu número de WhatsApp (con código de país)
+                const whatsappNumber = '+573217284804'; // Ejemplo: +54 9 11 1234-5678
+                
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validar el formulario
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !phone || !subject || !message) {
+                        showMessage('Por favor complete todos los campos del formulario.', 'error');
+                        return;
+                    }
+                    
+                    // Validar formato de correo electrónico
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showMessage('Por favor ingrese un correo electrónico válido.', 'error');
+                        return;
+                    }
+                    
+                    // Mostrar estado de carga
+                    submitBtn.classList.add('btn-loading');
+                    submitBtn.disabled = true;
+                    
+                    // Simular almacenamiento de datos (aquí puedes agregar tu lógica de almacenamiento real)
+                    setTimeout(() => {
+                        // Formatear el mensaje para WhatsApp
+                        const whatsappMessage = 
+                            `*Nuevo formulario de contacto LUXOR*%0A%0A` +
+                            `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                            `*Email:* ${encodeURIComponent(email)}%0A` +
+                            `*Teléfono:* ${encodeURIComponent(phone)}%0A` +
+                            `*Asunto:* ${encodeURIComponent(subject)}%0A%0A` +
+                            `*Mensaje:*%0A${encodeURIComponent(message)}`;
+                        
+                        // Crear URL de WhatsApp
+                        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
+                        
+                        // Mostrar mensaje de éxito
+                        showMessage('¡Formulario enviado correctamente! Redirigiendo a WhatsApp...', 'success');
+                        
+                        // Guardar datos en localStorage (opcional)
+                        saveFormData(name, email, phone, subject, message);
+                        
+                        // Resetear formulario
+                        contactForm.reset();
+                        
+                        // Quitar estado de carga
+                        submitBtn.classList.remove('btn-loading');
+                        submitBtn.disabled = false;
+                        
+                        // Abrir WhatsApp después de un breve retraso
+                        setTimeout(() => {
+                            window.open(whatsappUrl, '_blank');
+                        }, 1500);
+                    }, 1000);
+                });
+                
+                // Función para mostrar mensajes
+                function showMessage(text, type) {
+                    formMessage.textContent = text;
+                    formMessage.className = 'form-message ' + type;
+                    formMessage.style.display = 'block';
+                    
+                    // Ocultar mensaje después de 5 segundos
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }
+                
+                // Función para guardar datos del formulario (opcional)
+                function saveFormData(name, email, phone, subject, message) {
+                    const formData = {
+                        name,
+                        email,
+                        phone,
+                        subject,
+                        message,
+                        date: new Date().toISOString()
+                    };
+                    
+                    // Obtener datos existentes o inicializar array vacío
+                    const existingData = JSON.parse(localStorage.getItem('luxorFormData') || '[]');
+                    
+                    // Agregar nuevos datos
+                    existingData.push(formData);
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('luxorFormData', JSON.stringify(existingData));
+                }
             });
         </script>
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
